@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#176f68" />
+    <meta name="description" content="Trusted home and business appliance services, at your door." />
+    <title>HomeCare — Expert help, at your door</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="top-area">
+        <header>
+          <button class="location" aria-label="Change location"><span class="pin">⌖</span><span><small>Services at</small><strong>Indiranagar, Bengaluru</strong></span><span class="chevron">⌄</span></button>
+          <button class="profile" aria-label="Your profile">AK</button>
+        </header>
+        <div class="hero-copy">
+          <p class="eyebrow">HOME & BUSINESS CARE</p>
+          <h1>Everything working,<br /><em>beautifully.</em></h1>
+          <p>Trusted pros for every space you care for.</p>
+        </div>
+        <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="What needs fixing today?" /><button aria-label="voice search">◌</button></label>
+      </section>
+
+      <section class="quick-row" aria-label="Quick actions">
+        <button class="quick-card"><span class="quick-icon orange">⚡</span><span>Emergency<br />repair</span></button>
+        <button class="quick-card"><span class="quick-icon purple">▣</span><span>My<br />bookings</span></button>
+        <button class="quick-card"><span class="quick-icon green">✦</span><span>Annual care<br />plans</span></button>
+      </section>
+
+      <section class="section services-section">
+        <div class="section-title"><div><p class="eyebrow">POPULAR AT HOME</p><h2>What can we help with?</h2></div><button class="link-btn">See all <span>›</span></button></div>
+        <div class="category-grid" id="categories">
+          <button class="category active" data-name="Air conditioner"><span class="art ac">≋</span><span>AC service<br />& repair</span></button>
+          <button class="category" data-name="Refrigerator"><span class="art fridge">▥</span><span>Refrigerator<br />repair</span></button>
+          <button class="category" data-name="Washing machine"><span class="art wash">◉</span><span>Washing<br />machine</span></button>
+          <button class="category" data-name="Plumbing"><span class="art plumbing">♧</span><span>Plumbing<br />services</span></button>
+          <button class="category" data-name="Electrical"><span class="art electrical">♢</span><span>Electrical<br />services</span></button>
+          <button class="category" data-name="Cleaning"><span class="art cleaning">✿</span><span>Deep<br />cleaning</span></button>
+        </div>
+      </section>
+
+      <section class="promo-wrap">
+        <article class="promo-card">
+          <div class="promo-copy"><p>WELCOME OFFER</p><h2>Get <b>₹150 off</b><br />your first service</h2><button id="offerButton">Claim offer <span>→</span></button></div>
+          <div class="promo-art"><span class="spark s1">✦</span><span class="spark s2">✦</span><div class="tool-bag">✚</div><div class="tag">₹150<br /><small>OFF</small></div></div>
+        </article>
+      </section>
+
+      <section class="section business-section">
+        <div class="section-title"><div><p class="eyebrow">FOR YOUR BUSINESS</p><h2>Keep your space running</h2></div><button class="link-btn">Explore <span>›</span></button></div>
+        <div class="business-cards">
+          <article class="business-card restaurant"><div class="business-icon">♨</div><div><h3>Restaurants & cafés</h3><p>Kitchen equipment, HVAC & more</p></div><span>›</span></article>
+          <article class="business-card hotel"><div class="business-icon">⌂</div><div><h3>Hotels & stays</h3><p>Complete property maintenance</p></div><span>›</span></article>
+        </div>
+      </section>
+
+      <section class="trust-strip"><span class="trust-check">✓</span><span><b>10,000+ verified professionals</b><br />Background checked & service trained</span><span class="trust-people">●●●</span></section>
+      <div class="spacer"></div>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item selected"><span>⌂</span>Home</button>
+      <button class="nav-item"><span>▦</span>Services</button>
+      <button class="book-now" id="bookButton"><span>＋</span>Book a service</button>
+      <button class="nav-item"><span>◷</span>Bookings</button>
+      <button class="nav-item"><span>♡</span>Account</button>
+    </nav>
+
+    <div class="toast" id="toast" role="status"></div>
+    <section class="booking-sheet" id="bookingSheet" aria-hidden="true" aria-labelledby="bookingTitle">
+      <div class="sheet-backdrop" data-close-sheet></div>
+      <div class="sheet-content" role="dialog" aria-modal="true">
+        <div class="sheet-handle"></div>
+        <button class="sheet-close" data-close-sheet aria-label="Close booking form">×</button>
+        <div class="booking-step active" data-step="1">
+          <p class="eyebrow">NEW BOOKING</p><h2 id="bookingTitle">What needs care?</h2>
+          <p class="sheet-subtitle">Select a service and we’ll match you with a verified professional.</p>
+          <div class="booking-services" id="bookingServices"></div>
+          <button class="continue-button" id="toDetails" disabled>Continue <span>→</span></button>
+        </div>
+        <div class="booking-step" data-step="2">
+          <button class="back-button" id="backToServices">‹ Back</button>
+          <p class="eyebrow">YOUR VISIT</p><h2>Choose a convenient time</h2>
+          <div class="visit-options" id="visitOptions">
+            <button data-slot="Today, 4–6 PM"><b>Today</b><small>4–6 PM</small></button><button class="chosen" data-slot="Tomorrow, 9–11 AM"><b>Tomorrow</b><small>9–11 AM</small></button><button data-slot="Tomorrow, 2–4 PM"><b>Tomorrow</b><small>2–4 PM</small></button>
+          </div>
+          <label class="form-label">Your address<input id="address" placeholder="House / flat number and area" autocomplete="street-address" /></label>
+          <label class="form-label">Mobile number<input id="phone" inputmode="tel" placeholder="10-digit mobile number" autocomplete="tel" /></label>
+          <div class="payment-note"><span>₹</span><div><b>Cash on Service</b><small>Pay the professional only after the service is completed.</small></div></div>
+          <button class="continue-button" id="confirmBooking">Confirm booking <span>→</span></button>
+        </div>
+        <div class="booking-step success-step" data-step="3">
+          <div class="success-icon">✓</div><p class="eyebrow">BOOKING CONFIRMED</p><h2>We’re on it!</h2>
+          <p id="successCopy" class="sheet-subtitle"></p><button class="continue-button" data-close-sheet>Done</button>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
