@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#176f68" /><title>HomeCare Operations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="portal.css" />
+</head>
+<body>
+  <div class="portal-shell">
+    <aside class="sidebar"><a class="brand" href="index.html"><span>✦</span>HomeCare</a>
+      <p class="side-label">ROLE PREVIEW</p>
+      <div class="role-switch" id="roleSwitch">
+        <button class="active" data-role="admin"><span>◈</span>Admin</button><button data-role="store"><span>⌂</span>Store manager</button><button data-role="employee"><span>⚒</span>Employee</button><button data-role="customer"><span>◉</span>Customer</button>
+      </div>
+      <div class="side-bottom"><span class="avatar">KR</span><div><b>Kasireddy</b><small id="roleName">Main administrator</small></div></div>
+    </aside>
+    <main class="portal-main">
+      <header class="portal-header"><div><p class="eyebrow" id="headingEyebrow">COMMAND CENTER</p><h1 id="pageHeading">Good evening, Kasireddy</h1></div><div class="header-actions"><button class="bell">♧<i></i></button><a href="index.html" class="visit-site">View app ↗</a></div></header>
+      <section id="dashboard"></section>
+    </main>
+  </div>
+  <script src="portal.js"></script>
+</body>
+</html>
