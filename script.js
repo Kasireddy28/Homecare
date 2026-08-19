@@ -1,4 +1,7 @@
 const toast = document.getElementById('toast');
+const session = JSON.parse(localStorage.getItem('homecare_session') || 'null');
+if (!session) window.location.replace('login.html');
+if (session && session.role !== 'customer') window.location.replace('portal.html');
 let toastTimer;
 function showToast(message) {
   toast.textContent = message;
@@ -21,6 +24,7 @@ document.querySelectorAll('.nav-item').forEach((item) => item.addEventListener('
 document.getElementById('searchInput').addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && event.target.value.trim()) showToast(`Searching for “${event.target.value.trim()}”`);
 });
+document.getElementById('profileButton').addEventListener('click', () => { localStorage.removeItem('homecare_session'); window.location.href = 'login.html'; });
 
 const services = [
   ['AC service & repair', 'From ₹499'], ['Refrigerator repair', 'From ₹349'],
